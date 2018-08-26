@@ -16,7 +16,7 @@
 卡曼滤波模型假设在时刻 $t$ 的系统状态，可从之前 $t-1$ 时刻得到，通过公式：
 
 $$
-\boldsymbol{x}_t=\boldsymbol{F}_t\boldsymbol{x}_{t-1}+\boldsymbol{B}_t\boldsymbol{u}_t+\boldsymbol{w}_t\tag{1}
+\boldsymbol{x}_t=\boldsymbol{F}_t\boldsymbol{x}_{t-1}+\boldsymbol{B}_t\boldsymbol{u}_t+\boldsymbol{w}_t
 $$
 
 其中
