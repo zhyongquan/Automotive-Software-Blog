@@ -112,7 +112,7 @@
 详细代码见notebook。
 
 ### 3.1 初始化
-假设火车初始位置 <a href="https://www.codecogs.com/eqnedit.php?latex=$x_0=0$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$x_0=0$" title="$x_0=0$" /></a>，初速度 <a href="https://www.codecogs.com/eqnedit.php?latex=\dot{x}_0=0" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\dot{x}_0=0" title="\dot{x}_0=0" /></a>，质量 <a href="https://www.codecogs.com/eqnedit.php?latex=f_t=1000" target="_blank"><img src="https://latex.codecogs.com/gif.latex?f_t=1000" title="f_t=1000" /></a>，推力 <a href="https://www.codecogs.com/eqnedit.php?latex=f_0" target="_blank"><img src="https://latex.codecogs.com/gif.latex?f_0" title="f_0" /></a>。
+假设火车初始位置，初速度 ，质量，推力。
 
 |<a href="https://www.codecogs.com/eqnedit.php?latex=x_0$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?x_0$" title="x_0$" /></a>|<a href="https://www.codecogs.com/eqnedit.php?latex=\dot{x}_0" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\dot{x}_0" title="\dot{x}_0" /></a>|<a href="https://www.codecogs.com/eqnedit.php?latex=m" target="_blank"><img src="https://latex.codecogs.com/gif.latex?m" title="m" /></a>|<a href="https://www.codecogs.com/eqnedit.php?latex=f_0" target="_blank"><img src="https://latex.codecogs.com/gif.latex?f_0" title="f_0" /></a>|
 |:--:|:--:|:--:|:--:|
