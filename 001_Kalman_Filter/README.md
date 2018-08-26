@@ -74,11 +74,11 @@
 
 把相同项折叠起来，则可写成：
 <div align=center><p/>
-<a href="https://www.codecogs.com/eqnedit.php?latex=y_{fuesd}(r,\mu_{fused},\sigma_{fused})=\frac{1}{\sqrt{2\pi\sigma_{fused}^2}}e^{-\dfrac{(r-\mu_fused)^2}{2\sigma_fused^2}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?y_{fuesd}(r,\mu_{fused},\sigma_{fused})=\frac{1}{\sqrt{2\pi\sigma_{fused}^2}}e^{-\dfrac{(r-\mu_fused)^2}{2\sigma_fused^2}}" title="y_{fuesd}(r,\mu_{fused},\sigma_{fused})=\frac{1}{\sqrt{2\pi\sigma_{fused}^2}}e^{-\dfrac{(r-\mu_fused)^2}{2\sigma_fused^2}}" /></a>
+<a href="https://www.codecogs.com/eqnedit.php?latex=y_{fuesd}(r,\mu_{fused},\sigma_{fused})=\frac{1}{\sqrt{2\pi\sigma_{fused}^2}}e^{-\dfrac{(r-\mu_{fused})^2}{2\sigma_{fused}^2}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?y_{fuesd}(r,\mu_{fused},\sigma_{fused})=\frac{1}{\sqrt{2\pi\sigma_{fused}^2}}e^{-\dfrac{(r-\mu_{fused})^2}{2\sigma_{fused}^2}}" title="y_{fuesd}(r,\mu_{fused},\sigma_{fused})=\frac{1}{\sqrt{2\pi\sigma_{fused}^2}}e^{-\dfrac{(r-\mu_{fused})^2}{2\sigma_{fused}^2}}" /></a>
 </div>
 式中：
 <div align=center><p/>
-<a href="https://www.codecogs.com/eqnedit.php?latex=y_{fuesd}(r,\mu_{fused},\sigma_{fused})=\frac{1}{\sqrt{2\pi\sigma_{fused}^2}}e^{-\dfrac{(r-\mu_{fused})^2}{2\sigma_{fused}^2}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?y_{fuesd}(r,\mu_{fused},\sigma_{fused})=\frac{1}{\sqrt{2\pi\sigma_{fused}^2}}e^{-\dfrac{(r-\mu_{fused})^2}{2\sigma_{fused}^2}}" title="y_{fuesd}(r,\mu_{fused},\sigma_{fused})=\frac{1}{\sqrt{2\pi\sigma_{fused}^2}}e^{-\dfrac{(r-\mu_{fused})^2}{2\sigma_{fused}^2}}" /></a>
+<a href="https://www.codecogs.com/eqnedit.php?latex=\mu_{fused}=\frac{\mu_1\sigma_2^2&plus;\mu_2\sigma_1^2}{\sigma_1^2&plus;\sigma_2^2}=\mu_1&plus;\frac{\sigma_1^2(\mu_2-\mu_1)}{\sigma_1^2&plus;\sigma_2^2}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\mu_{fused}=\frac{\mu_1\sigma_2^2&plus;\mu_2\sigma_1^2}{\sigma_1^2&plus;\sigma_2^2}=\mu_1&plus;\frac{\sigma_1^2(\mu_2-\mu_1)}{\sigma_1^2&plus;\sigma_2^2}" title="\mu_{fused}=\frac{\mu_1\sigma_2^2+\mu_2\sigma_1^2}{\sigma_1^2+\sigma_2^2}=\mu_1+\frac{\sigma_1^2(\mu_2-\mu_1)}{\sigma_1^2+\sigma_2^2}" /></a>
 <p/>
 <a href="https://www.codecogs.com/eqnedit.php?latex=\sigma_{fused}^2=\frac{\sigma_1^2\sigma_2^2}{\sigma_1^2&plus;\sigma_2^2}=\sigma_1^2-\frac{\sigma_1^4}{\sigma_1^2&plus;\sigma_2^2}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sigma_{fused}^2=\frac{\sigma_1^2\sigma_2^2}{\sigma_1^2&plus;\sigma_2^2}=\sigma_1^2-\frac{\sigma_1^4}{\sigma_1^2&plus;\sigma_2^2}" title="\sigma_{fused}^2=\frac{\sigma_1^2\sigma_2^2}{\sigma_1^2+\sigma_2^2}=\sigma_1^2-\frac{\sigma_1^4}{\sigma_1^2+\sigma_2^2}" /></a>
 </div>
@@ -108,9 +108,15 @@
 <a href="https://www.codecogs.com/eqnedit.php?latex=\sigma_{fused}^2=\sigma_1^2-KH\sigma_1^2\rightarrow\boldsymbol{P}_{t|t}=\boldsymbol{P}_{t|t-1}-{\boldsymbol{K}}_{t}{\boldsymbol{H}}_t\boldsymbol{P}_{t|t-1}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sigma_{fused}^2=\sigma_1^2-KH\sigma_1^2\rightarrow\boldsymbol{P}_{t|t}=\boldsymbol{P}_{t|t-1}-{\boldsymbol{K}}_{t}{\boldsymbol{H}}_t\boldsymbol{P}_{t|t-1}" title="\sigma_{fused}^2=\sigma_1^2-KH\sigma_1^2\rightarrow\boldsymbol{P}_{t|t}=\boldsymbol{P}_{t|t-1}-{\boldsymbol{K}}_{t}{\boldsymbol{H}}_t\boldsymbol{P}_{t|t-1}" /></a>
 </div>
 ## 3.实现
-### 3.1 参数
-假设火车初始位置0m，初速度0m/s，质量1000kg，推力1000N。
+详细代码见notebook。
+### 3.1 初始化
+假设火车初始位置 <a href="https://www.codecogs.com/eqnedit.php?latex=$x_0=0$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$x_0=0$" title="$x_0=0$" /></a>m，初速度 <a href="https://www.codecogs.com/eqnedit.php?latex=\dot{x}_0=0" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\dot{x}_0=0" title="\dot{x}_0=0" /></a>m/s，质量 <a href="https://www.codecogs.com/eqnedit.php?latex=f_t=1000" target="_blank"><img src="https://latex.codecogs.com/gif.latex?f_t=1000" title="f_t=1000" /></a>kg，推力 <a href="https://www.codecogs.com/eqnedit.php?latex=f_t=1000" target="_blank"><img src="https://latex.codecogs.com/gif.latex?f_t=1000" title="f_t=1000" /></a>N。
+
 ### 3.2 结果
+
+## 4.QA
+### 4.1 如何确定协方差
+一般根据传感器特性，通过测量得到
 
   [1]: https://s1.ax1x.com/2018/08/26/PbtiDA.jpg
   [2]: https://s1.ax1x.com/2018/08/26/Pbtpge.jpg
