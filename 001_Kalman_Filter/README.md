@@ -107,10 +107,17 @@
 <p/>
 <a href="https://www.codecogs.com/eqnedit.php?latex=\sigma_{fused}^2=\sigma_1^2-KH\sigma_1^2\rightarrow\boldsymbol{P}_{t|t}=\boldsymbol{P}_{t|t-1}-{\boldsymbol{K}}_{t}{\boldsymbol{H}}_t\boldsymbol{P}_{t|t-1}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sigma_{fused}^2=\sigma_1^2-KH\sigma_1^2\rightarrow\boldsymbol{P}_{t|t}=\boldsymbol{P}_{t|t-1}-{\boldsymbol{K}}_{t}{\boldsymbol{H}}_t\boldsymbol{P}_{t|t-1}" title="\sigma_{fused}^2=\sigma_1^2-KH\sigma_1^2\rightarrow\boldsymbol{P}_{t|t}=\boldsymbol{P}_{t|t-1}-{\boldsymbol{K}}_{t}{\boldsymbol{H}}_t\boldsymbol{P}_{t|t-1}" /></a>
 </div>
+
 ## 3.实现
 详细代码见notebook。
+
 ### 3.1 初始化
-假设火车初始位置 <a href="https://www.codecogs.com/eqnedit.php?latex=$x_0=0$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$x_0=0$" title="$x_0=0$" /></a>m，初速度 <a href="https://www.codecogs.com/eqnedit.php?latex=\dot{x}_0=0" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\dot{x}_0=0" title="\dot{x}_0=0" /></a>m/s，质量 <a href="https://www.codecogs.com/eqnedit.php?latex=f_t=1000" target="_blank"><img src="https://latex.codecogs.com/gif.latex?f_t=1000" title="f_t=1000" /></a>kg，推力 <a href="https://www.codecogs.com/eqnedit.php?latex=f_t=1000" target="_blank"><img src="https://latex.codecogs.com/gif.latex?f_t=1000" title="f_t=1000" /></a>N。
+假设火车初始位置 <a href="https://www.codecogs.com/eqnedit.php?latex=$x_0=0$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$x_0=0$" title="$x_0=0$" /></a>，初速度 <a href="https://www.codecogs.com/eqnedit.php?latex=\dot{x}_0=0" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\dot{x}_0=0" title="\dot{x}_0=0" /></a>，质量 <a href="https://www.codecogs.com/eqnedit.php?latex=f_t=1000" target="_blank"><img src="https://latex.codecogs.com/gif.latex?f_t=1000" title="f_t=1000" /></a>，推力 <a href="https://www.codecogs.com/eqnedit.php?latex=f_0" target="_blank"><img src="https://latex.codecogs.com/gif.latex?f_0" title="f_0" /></a>。
+
+|<a href="https://www.codecogs.com/eqnedit.php?latex=x_0$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?x_0$" title="x_0$" /></a>|<a href="https://www.codecogs.com/eqnedit.php?latex=\dot{x}_0" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\dot{x}_0" title="\dot{x}_0" /></a>|<a href="https://www.codecogs.com/eqnedit.php?latex=m" target="_blank"><img src="https://latex.codecogs.com/gif.latex?m" title="m" /></a>|<a href="https://www.codecogs.com/eqnedit.php?latex=f_0" target="_blank"><img src="https://latex.codecogs.com/gif.latex?f_0" title="f_0" /></a>|
+|:--:|:--:|:--:|:--:|
+|0m|0m/s|1000kg|1000N|
+
 
 ### 3.2 结果
 
