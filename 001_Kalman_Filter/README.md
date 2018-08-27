@@ -113,7 +113,7 @@
 </div>
 
 ## 3.实现
-详细代码见[notebook](Kalman_Fiter.ipynb)。
+详细代码见[notebook](Kalman_Filter.ipynb)。
 
 ### 3.1 初始化
 假设火车匀速运动，初始位置，速度 ，不考虑质量，推力等因素。且预测值和测量值单位相同。
