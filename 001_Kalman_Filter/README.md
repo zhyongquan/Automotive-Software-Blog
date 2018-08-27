@@ -130,7 +130,7 @@
 ![图6][6]
 
 ### 3.3 比较
-系统方差 <a href="https://www.codecogs.com/eqnedit.php?latex=\sigma_1" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sigma_1" title="\sigma_1" /> 和 <a href="https://www.codecogs.com/eqnedit.php?latex=\sigma_2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sigma_2" title="\sigma_2" /></a> 代表了预测模型和测量模型的可信度。提高测量模型的可信度，系统更快收敛：
+系统方差 <a href="https://www.codecogs.com/eqnedit.php?latex=\sigma_1" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sigma_1" title="\sigma_1" /></a>  和 <a href="https://www.codecogs.com/eqnedit.php?latex=\sigma_2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sigma_2" title="\sigma_2" /></a> 代表了预测模型和测量模型的可信度。提高测量模型的可信度，系统更快收敛：
 
 ![图7][7]
 
