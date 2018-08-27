@@ -10,15 +10,18 @@
 <a href="https://www.codecogs.com/eqnedit.php?latex=\hat{\boldsymbol{x}}_{t|t}=\hat{\boldsymbol{x}}_{t|t-1}&plus;\boldsymbol{K}_t(\boldsymbol{z}_t-\boldsymbol{H}_t\hat{\boldsymbol{x}}_{t|t-1})" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\hat{\boldsymbol{x}}_{t|t}=\hat{\boldsymbol{x}}_{t|t-1}&plus;\boldsymbol{K}_t(\boldsymbol{z}_t-\boldsymbol{H}_t\hat{\boldsymbol{x}}_{t|t-1})" title="\hat{\boldsymbol{x}}_{t|t}=\hat{\boldsymbol{x}}_{t|t-1}+\boldsymbol{K}_t(\boldsymbol{z}_t-\boldsymbol{H}_t\hat{\boldsymbol{x}}_{t|t-1})" /></a>
 <p/>
 <a href="https://www.codecogs.com/eqnedit.php?latex=\boldsymbol{P}_{t|t}=\boldsymbol{P}_{t|t-1}-{\boldsymbol{K}}_{t}{\boldsymbol{H}}_t\boldsymbol{P}_{t|t-1}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\boldsymbol{P}_{t|t}=\boldsymbol{P}_{t|t-1}-{\boldsymbol{K}}_{t}{\boldsymbol{H}}_t\boldsymbol{P}_{t|t-1}" title="\boldsymbol{P}_{t|t}=\boldsymbol{P}_{t|t-1}-{\boldsymbol{K}}_{t}{\boldsymbol{H}}_t\boldsymbol{P}_{t|t-1}" /></a>
+<p/>
+<a href="https://www.codecogs.com/eqnedit.php?latex=\boldsymbol{K}_t=\boldsymbol{P}_{t|t-1}\boldsymbol{H}_t^T(\boldsymbol{H}_tP_{t|t-1}\boldsymbol{H}_t^T&plus;\boldsymbol{R}_t)^{-1}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\boldsymbol{K}_t=\boldsymbol{P}_{t|t-1}\boldsymbol{H}_t^T(\boldsymbol{H}_tP_{t|t-1}\boldsymbol{H}_t^T&plus;\boldsymbol{R}_t)^{-1}" title="\boldsymbol{K}_t=\boldsymbol{P}_{t|t-1}\boldsymbol{H}_t^T(\boldsymbol{H}_tP_{t|t-1}\boldsymbol{H}_t^T+\boldsymbol{R}_t)^{-1}" /></a>
 </div>
 式中：
 
-- <a href="https://www.codecogs.com/eqnedit.php?latex=\hat{\boldsymbol{x}}_{t|t}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\hat{\boldsymbol{x}}_{t|t}" title="\hat{\boldsymbol{x}}_{t|t}" /></a> 表示 *t* 时刻的最优估计
-- <a href="https://www.codecogs.com/eqnedit.php?latex=\hat{\boldsymbol{x}}_{t|t-1}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\hat{\boldsymbol{x}}_{t|t-1}" title="\hat{\boldsymbol{x}}_{t|t-1}" /></a> 表示 *t*-1 时刻对 *t* 时刻的预测
-- <a href="https://www.codecogs.com/eqnedit.php?latex=\boldsymbol{K}_t" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\boldsymbol{K}_t" title="\boldsymbol{K}_t" /></a> 表示测量值和预测值的协方差矩阵
-- <a href="https://www.codecogs.com/eqnedit.php?latex=\boldsymbol{z}_t" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\boldsymbol{z}_t" title="\boldsymbol{z}_t" /></a> 表示 *t* 时刻的测量值
-- <a href="https://www.codecogs.com/eqnedit.php?latex=\boldsymbol{H}_t" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\boldsymbol{H}_t" title="\boldsymbol{H}_t" /></a>
-- <a href="https://www.codecogs.com/eqnedit.php?latex=\boldsymbol{P}_{t|t-1}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\boldsymbol{P}_{t|t-1}" title="\boldsymbol{P}_{t|t-1}" /></a>
+- <a href="https://www.codecogs.com/eqnedit.php?latex=\hat{\boldsymbol{x}}_{t|t}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\hat{\boldsymbol{x}}_{t|t}" title="\hat{\boldsymbol{x}}_{t|t}" /></a> 表示 *t* 时刻的最优估计。
+- <a href="https://www.codecogs.com/eqnedit.php?latex=\hat{\boldsymbol{x}}_{t|t-1}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\hat{\boldsymbol{x}}_{t|t-1}" title="\hat{\boldsymbol{x}}_{t|t-1}" /></a> 表示 *t*-1 时刻对 *t* 时刻的预测。
+- <a href="https://www.codecogs.com/eqnedit.php?latex=\boldsymbol{K}_t" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\boldsymbol{K}_t" title="\boldsymbol{K}_t" /></a> 系统增益。
+- <a href="https://www.codecogs.com/eqnedit.php?latex=\boldsymbol{z}_t" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\boldsymbol{z}_t" title="\boldsymbol{z}_t" /></a> 表示 *t* 时刻的测量值。
+- <a href="https://www.codecogs.com/eqnedit.php?latex=\boldsymbol{H}_t" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\boldsymbol{H}_t" title="\boldsymbol{H}_t" /></a> 表示转换矩阵，把测量值映射到预测值，统一变量单位。
+- <a href="https://www.codecogs.com/eqnedit.php?latex=\boldsymbol{P}_{t|t-1}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\boldsymbol{P}_{t|t-1}" title="\boldsymbol{P}_{t|t-1}" /></a> 表示预测值方差。
+- <a href="https://www.codecogs.com/eqnedit.php?latex=\boldsymbol{R}_t" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\boldsymbol{R}_t" title="\boldsymbol{R}_t" /></a> 表示测量值的方差。
 
 
 ## 2. 推导
@@ -105,7 +108,7 @@
 <div align=center><p/>
 <a href="https://www.codecogs.com/eqnedit.php?latex=\frac{\sigma_{fused}^2}{c^2}=(\frac{\sigma_1^2}{c})-\frac{(\frac{\sigma_1}{c})^4}{(\frac{\sigma_1}{c})^2&plus;\sigma_2^2}\\&space;\Rightarrow\sigma_{fused}^2=\sigma_1^2-\left(\frac{\frac{\sigma_1^2}{c}}{(\frac{\sigma_1}{c})^2&plus;\sigma_2^2}\right)\frac{\sigma_1^2}{c}\\&space;=\sigma_1^2-KH\sigma_1^2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\frac{\sigma_{fused}^2}{c^2}=(\frac{\sigma_1^2}{c})-\frac{(\frac{\sigma_1}{c})^4}{(\frac{\sigma_1}{c})^2&plus;\sigma_2^2}\\&space;\Rightarrow\sigma_{fused}^2=\sigma_1^2-\left(\frac{\frac{\sigma_1^2}{c}}{(\frac{\sigma_1}{c})^2&plus;\sigma_2^2}\right)\frac{\sigma_1^2}{c}\\&space;=\sigma_1^2-KH\sigma_1^2" title="\frac{\sigma_{fused}^2}{c^2}=(\frac{\sigma_1^2}{c})-\frac{(\frac{\sigma_1}{c})^4}{(\frac{\sigma_1}{c})^2+\sigma_2^2}\\ \Rightarrow\sigma_{fused}^2=\sigma_1^2-\left(\frac{\frac{\sigma_1^2}{c}}{(\frac{\sigma_1}{c})^2+\sigma_2^2}\right)\frac{\sigma_1^2}{c}\\ =\sigma_1^2-KH\sigma_1^2" /></a>
 </div>
-推导最终结论：
+推导最终结论和卡尔曼方程一致：
 <div align=center><p/>
 <a href="https://www.codecogs.com/eqnedit.php?latex=\mu_{fused}=\mu_1&plus;K\cdot(\mu_2-H\mu_1)\rightarrow\hat{\boldsymbol{x}}_{t|t}=\hat{\boldsymbol{x}}_{t|t-1}&plus;\boldsymbol{K}_t(\boldsymbol{z}_t-\boldsymbol{H}_t\hat{\boldsymbol{x}}_{t|t-1})" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\mu_{fused}=\mu_1&plus;K\cdot(\mu_2-H\mu_1)\rightarrow\hat{\boldsymbol{x}}_{t|t}=\hat{\boldsymbol{x}}_{t|t-1}&plus;\boldsymbol{K}_t(\boldsymbol{z}_t-\boldsymbol{H}_t\hat{\boldsymbol{x}}_{t|t-1})" title="\mu_{fused}=\mu_1+K\cdot(\mu_2-H\mu_1)\rightarrow\hat{\boldsymbol{x}}_{t|t}=\hat{\boldsymbol{x}}_{t|t-1}+\boldsymbol{K}_t(\boldsymbol{z}_t-\boldsymbol{H}_t\hat{\boldsymbol{x}}_{t|t-1})" /></a>
 <p/>
@@ -113,13 +116,13 @@
 </div>
 
 ### 2.3 迭代
-预测值正太分布和测量值正态分布相乘得到新的正太分布，作为下次预测值正态分布。通过不同迭代，逐渐向真实值收敛。
+预测值正太分布和测量值正态分布相乘得到新的正太分布，作为下次预测值正态分布。通过不断迭代，逐渐向真实值收敛。
 
 ## 3.实现
 详细代码见[notebook](Kalman_Filter.ipynb)。
 
 ### 3.1 初始化
-假设火车匀速运动，初始位置，速度 ，不考虑质量，推力等因素。且预测值和测量值单位相同。
+假设火车匀速运动，初始位置、速度、方差如下，不考虑质量、推力等因素。且预测值和测量值单位相同。
 
 |<a href="https://www.codecogs.com/eqnedit.php?latex=x_0$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?x_0$" title="x_0$" /></a>|<a href="https://www.codecogs.com/eqnedit.php?latex=\dot{x}_0" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\dot{x}_0" title="\dot{x}_0" /></a>|<a href="https://www.codecogs.com/eqnedit.php?latex=\sigma_1" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sigma_1" title="\sigma_1" /></a>|<a href="https://www.codecogs.com/eqnedit.php?latex=\sigma_2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sigma_2" title="\sigma_2" /></a>|
 |:--:|:--:|:--:|:--:|
