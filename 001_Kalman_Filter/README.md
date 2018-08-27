@@ -112,6 +112,9 @@
 <a href="https://www.codecogs.com/eqnedit.php?latex=\sigma_{fused}^2=\sigma_1^2-KH\sigma_1^2\rightarrow\boldsymbol{P}_{t|t}=\boldsymbol{P}_{t|t-1}-{\boldsymbol{K}}_{t}{\boldsymbol{H}}_t\boldsymbol{P}_{t|t-1}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sigma_{fused}^2=\sigma_1^2-KH\sigma_1^2\rightarrow\boldsymbol{P}_{t|t}=\boldsymbol{P}_{t|t-1}-{\boldsymbol{K}}_{t}{\boldsymbol{H}}_t\boldsymbol{P}_{t|t-1}" title="\sigma_{fused}^2=\sigma_1^2-KH\sigma_1^2\rightarrow\boldsymbol{P}_{t|t}=\boldsymbol{P}_{t|t-1}-{\boldsymbol{K}}_{t}{\boldsymbol{H}}_t\boldsymbol{P}_{t|t-1}" /></a>
 </div>
 
+## 2.3 迭代
+预测值正太分布和测量值正态分布相乘得到新的正太分布，作为下次预测值正态分布。通过不同迭代，逐渐向真实值收敛。
+
 ## 3.实现
 详细代码见[notebook](Kalman_Filter.ipynb)。
 
