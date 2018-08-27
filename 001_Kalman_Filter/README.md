@@ -20,6 +20,8 @@
 
 
 ## 2. 推导
+卡拉曼滤波算法利用了这正太分布的特性，系统预测值和测量值都是正太分布，两者相乘得到最优估计的正太分布，减小了方差，提高了精度。算法计算量小，易收敛。
+
 ### 2.1 前提
 如图所示，火车沿铁轨运动，要求解火车天线的位置，<a href="https://www.codecogs.com/eqnedit.php?latex=\boldsymbol{x}_t" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\boldsymbol{x}_t" title="\boldsymbol{x}_t" /></a> 包含了火车位置和速度：
 <div align=center>
@@ -67,7 +69,7 @@
 
 利用正太分布的特性，得到下图绿色估计值的正太分布：
 <div align=center><p/>
-<a href="http://www.codecogs.com/eqnedit.php?latex=y_{fused}(r;\mu_2,\sigma_2,\mu_2,\sigma_2)=&space;\frac1{\sqrt{2\pi\sigma_1^2}}e^{-\dfrac{(r-\mu_1)^2}{2\sigma_1^2}}\times\frac1{\sqrt{2\pi\sigma_2^2}}e^{-\dfrac{(r-\mu_2)^2}{2\sigma_2^2}}\\&space;=\frac1{\sqrt{2\pi\sigma_1^2\sigma_2^2}}e^{-(\dfrac{(r-\mu_1)^2}{2\sigma_1^2}&plus;\dfrac{(r-\mu_2)^2}{2\sigma_2^2})}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?y_{fused}(r;\mu_2,\sigma_2,\mu_2,\sigma_2)=&space;\frac1{\sqrt{2\pi\sigma_1^2}}e^{-\dfrac{(r-\mu_1)^2}{2\sigma_1^2}}\times\frac1{\sqrt{2\pi\sigma_2^2}}e^{-\dfrac{(r-\mu_2)^2}{2\sigma_2^2}}\\&space;=\frac1{\sqrt{2\pi\sigma_1^2\sigma_2^2}}e^{-(\dfrac{(r-\mu_1)^2}{2\sigma_1^2}&plus;\dfrac{(r-\mu_2)^2}{2\sigma_2^2})}" title="y_{fused}(r;\mu_2,\sigma_2,\mu_2,\sigma_2)= \frac1{\sqrt{2\pi\sigma_1^2}}e^{-\dfrac{(r-\mu_1)^2}{2\sigma_1^2}}\times\frac1{\sqrt{2\pi\sigma_2^2}}e^{-\dfrac{(r-\mu_2)^2}{2\sigma_2^2}}\\ =\frac1{\sqrt{2\pi\sigma_1^2\sigma_2^2}}e^{-(\dfrac{(r-\mu_1)^2}{2\sigma_1^2}+\dfrac{(r-\mu_2)^2}{2\sigma_2^2})}" /></a>
+<a href="https://www.codecogs.com/eqnedit.php?latex=y_{fused}(r;\mu_2,\sigma_2,\mu_2,\sigma_2)=&space;\frac1{\sqrt{2\pi\sigma_1^2}}e^{-\dfrac{(r-\mu_1)^2}{2\sigma_1^2}}\times\frac1{\sqrt{2\pi\sigma_2^2}}e^{-\dfrac{(r-\mu_2)^2}{2\sigma_2^2}}\\&space;=\frac1{\sqrt{2\pi\sigma_1^2\sigma_2^2}}e^{-\left(\dfrac{(r-\mu_1)^2}{2\sigma_1^2}&plus;\dfrac{(r-\mu_2)^2}{2\sigma_2^2}\right)}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?y_{fused}(r;\mu_2,\sigma_2,\mu_2,\sigma_2)=&space;\frac1{\sqrt{2\pi\sigma_1^2}}e^{-\dfrac{(r-\mu_1)^2}{2\sigma_1^2}}\times\frac1{\sqrt{2\pi\sigma_2^2}}e^{-\dfrac{(r-\mu_2)^2}{2\sigma_2^2}}\\&space;=\frac1{\sqrt{2\pi\sigma_1^2\sigma_2^2}}e^{-\left(\dfrac{(r-\mu_1)^2}{2\sigma_1^2}&plus;\dfrac{(r-\mu_2)^2}{2\sigma_2^2}\right)}" title="y_{fused}(r;\mu_2,\sigma_2,\mu_2,\sigma_2)= \frac1{\sqrt{2\pi\sigma_1^2}}e^{-\dfrac{(r-\mu_1)^2}{2\sigma_1^2}}\times\frac1{\sqrt{2\pi\sigma_2^2}}e^{-\dfrac{(r-\mu_2)^2}{2\sigma_2^2}}\\ =\frac1{\sqrt{2\pi\sigma_1^2\sigma_2^2}}e^{-\left(\dfrac{(r-\mu_1)^2}{2\sigma_1^2}+\dfrac{(r-\mu_2)^2}{2\sigma_2^2}\right)}" /></a>
 </div>
 
 ![图5][5]
@@ -112,21 +114,34 @@
 详细代码见notebook。
 
 ### 3.1 初始化
-假设火车初始位置，初速度 ，质量，推力。
+假设火车匀速运动，初始位置，速度 ，不考虑质量，推力等因素。且预测值和测量值单位相同。
 
-|<a href="https://www.codecogs.com/eqnedit.php?latex=x_0$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?x_0$" title="x_0$" /></a>|<a href="https://www.codecogs.com/eqnedit.php?latex=\dot{x}_0" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\dot{x}_0" title="\dot{x}_0" /></a>|<a href="https://www.codecogs.com/eqnedit.php?latex=m" target="_blank"><img src="https://latex.codecogs.com/gif.latex?m" title="m" /></a>|<a href="https://www.codecogs.com/eqnedit.php?latex=f_0" target="_blank"><img src="https://latex.codecogs.com/gif.latex?f_0" title="f_0" /></a>|
+|<a href="https://www.codecogs.com/eqnedit.php?latex=x_0$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?x_0$" title="x_0$" /></a>|<a href="https://www.codecogs.com/eqnedit.php?latex=\dot{x}_0" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\dot{x}_0" title="\dot{x}_0" /></a>|<a href="https://www.codecogs.com/eqnedit.php?latex=\sigma_1" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sigma_1" title="\sigma_1" /></a>|<a href="https://www.codecogs.com/eqnedit.php?latex=\sigma_2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sigma_2" title="\sigma_2" /></a>|
 |:--:|:--:|:--:|:--:|
-|0m|0m/s|1000kg|1000N|
+|0m|1m/s||0.1|0.2|
 
+预测初始值和最优估计初始值是5。
 
 ### 3.2 结果
+从图中可以看出，即使初始值偏差较大时，经过迭代，系统仍可以收敛到真实值，且最优估计比测量值和预测值更精确。
+
+![图6][6]
+
+### 3.3 比较
+系统方差 <a href="https://www.codecogs.com/eqnedit.php?latex=\sigma_1" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sigma_1" title="\sigma_1" /> 和 <a href="https://www.codecogs.com/eqnedit.php?latex=\sigma_2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sigma_2" title="\sigma_2" /></a> 代表了预测模型和测量模型的可信度。提高测量模型的可信度，系统更快收敛：
+
+![图7][7]
+
+系统的初始值也很重要，也会影响迭代的速度。
 
 ## 4.QA
-### 4.1 如何确定协方差
-一般根据传感器特性，通过测量得到
+### 4.1 如何确定协方差？
+一般根据传感器特性，通过测量得到。
 
   [1]: https://s1.ax1x.com/2018/08/26/PbtiDA.jpg
   [2]: https://s1.ax1x.com/2018/08/26/Pbtpge.jpg
   [3]: https://s1.ax1x.com/2018/08/26/Pbt9jH.jpg
   [4]: https://s1.ax1x.com/2018/08/26/PbtFHI.jpg
   [5]: https://s1.ax1x.com/2018/08/26/PbtPud.jpg
+  [6]: http://wx4.sinaimg.cn/mw690/0060lm7Tly1fuo3v2ej0lj30rs0dw75k.jpg
+  [7]: http://wx1.sinaimg.cn/mw690/0060lm7Tly1fuo3vromzwj30rs0dwgmr.jpg
