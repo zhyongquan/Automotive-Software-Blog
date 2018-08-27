@@ -1,5 +1,5 @@
 # 卡尔曼滤波
-本文参考文章[《Understanding the Basis of the Kalman Filter Via a Simple and Intuitive Derivation 》](https://www.cl.cam.ac.uk/~rmf25/papers/Understanding%20the%20Basis%20of%20the%20Kalman%20Filter.pdf)，使用火车运动的例子进行卡尔曼滤波的推导，并用Python实现。
+本文参考文章[《Understanding the Basis of the Kalman Filter Via a Simple and Intuitive Derivation》](https://www.cl.cam.ac.uk/~rmf25/papers/Understanding%20the%20Basis%20of%20the%20Kalman%20Filter.pdf)，使用火车运动的例子进行卡尔曼滤波的推导，并用Python实现。
 
 ## 1. 简介
 卡拉曼滤波广泛应用于数据融合领域，如阿波罗导航系统，汽车多传感器融合等。
