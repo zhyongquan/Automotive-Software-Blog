@@ -1,7 +1,9 @@
 # 卡尔曼滤波
-本文使用火车运动的例子进行卡尔曼滤波的推导和Python实现。
+本文参考文章[《Understanding the Basis of the Kalman Filter Via a Simple and Intuitive Derivation 》](https://www.cl.cam.ac.uk/~rmf25/papers/Understanding%20the%20Basis%20of%20the%20Kalman%20Filter.pdf)，使用火车运动的例子进行卡尔曼滤波的推导，并用Python实现。
+
 ## 1. 简介
 卡拉曼滤波广泛应用于数据融合领域，如阿波罗导航系统，汽车多传感器融合等。
+
 卡尔曼滤波可以用如下公式表示：
 <div align=center>
 <p/>
@@ -111,16 +113,16 @@
 </div>
 
 ## 3.实现
-详细代码见notebook。
+详细代码见[notebook](Kalman_Fiter.ipynb)。
 
 ### 3.1 初始化
 假设火车匀速运动，初始位置，速度 ，不考虑质量，推力等因素。且预测值和测量值单位相同。
 
 |<a href="https://www.codecogs.com/eqnedit.php?latex=x_0$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?x_0$" title="x_0$" /></a>|<a href="https://www.codecogs.com/eqnedit.php?latex=\dot{x}_0" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\dot{x}_0" title="\dot{x}_0" /></a>|<a href="https://www.codecogs.com/eqnedit.php?latex=\sigma_1" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sigma_1" title="\sigma_1" /></a>|<a href="https://www.codecogs.com/eqnedit.php?latex=\sigma_2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sigma_2" title="\sigma_2" /></a>|
 |:--:|:--:|:--:|:--:|
-|0m|1m/s||0.1|0.2|
+|0m|1m/s|0.1|0.2|
 
-预测初始值和最优估计初始值是5。
+预测初始值和最优估计初始值是10。
 
 ### 3.2 结果
 从图中可以看出，即使初始值偏差较大时，经过迭代，系统仍可以收敛到真实值，且最优估计比测量值和预测值更精确。
