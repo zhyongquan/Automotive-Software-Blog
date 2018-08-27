@@ -20,19 +20,19 @@
 - <a href="https://www.codecogs.com/eqnedit.php?latex=\boldsymbol{K}_t" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\boldsymbol{K}_t" title="\boldsymbol{K}_t" /></a> 系统增益。
 - <a href="https://www.codecogs.com/eqnedit.php?latex=\boldsymbol{z}_t" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\boldsymbol{z}_t" title="\boldsymbol{z}_t" /></a> 表示 *t* 时刻的测量值。
 - <a href="https://www.codecogs.com/eqnedit.php?latex=\boldsymbol{H}_t" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\boldsymbol{H}_t" title="\boldsymbol{H}_t" /></a> 表示转换矩阵，把测量值映射到预测值，统一变量单位。
-- <a href="https://www.codecogs.com/eqnedit.php?latex=\boldsymbol{P}_{t|t-1}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\boldsymbol{P}_{t|t-1}" title="\boldsymbol{P}_{t|t-1}" /></a> 表示预测值方差。
-- <a href="https://www.codecogs.com/eqnedit.php?latex=\boldsymbol{R}_t" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\boldsymbol{R}_t" title="\boldsymbol{R}_t" /></a> 表示测量值的方差。
+- <a href="https://www.codecogs.com/eqnedit.php?latex=\boldsymbol{P}_{t|t-1}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\boldsymbol{P}_{t|t-1}" title="\boldsymbol{P}_{t|t-1}" /></a> 表示预测值标准差。
+- <a href="https://www.codecogs.com/eqnedit.php?latex=\boldsymbol{R}_t" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\boldsymbol{R}_t" title="\boldsymbol{R}_t" /></a> 表示测量值的标准差。
 
 
 ## 2. 推导
-卡拉曼滤波算法利用了这正太分布的特性，系统预测值和测量值都是正太分布，两者相乘得到最优估计的正太分布，减小了方差，提高了精度。算法计算量小，易收敛。
+卡拉曼滤波算法利用了正太分布的特性，系统预测值和测量值都是正太分布，两者相乘得到最优估计的正太分布，减小了标准差，提高了精度。算法计算量小，易收敛。
 
 ### 2.1 前提
 如图所示，火车沿铁轨运动，要求解火车天线的位置，<a href="https://www.codecogs.com/eqnedit.php?latex=\boldsymbol{x}_t" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\boldsymbol{x}_t" title="\boldsymbol{x}_t" /></a> 包含了火车位置和速度：
-<div align=center>
+<div align=center><p/>
 <a href="https://www.codecogs.com/eqnedit.php?latex=\boldsymbol{x}_t=\left[&space;\begin{matrix}&space;x_t\\&space;\dot{x}_t&space;\end{matrix}&space;\right]" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\boldsymbol{x}_t=\left[&space;\begin{matrix}&space;x_t\\&space;\dot{x}_t&space;\end{matrix}&space;\right]" title="\boldsymbol{x}_t=\left[ \begin{matrix} x_t\\ \dot{x}_t \end{matrix} \right]" /></a>
 </div>
-火车受到 <a href="https://www.codecogs.com/eqnedit.php?latex=f_t" target="_blank"><img src="https://latex.codecogs.com/gif.latex?f_t" title="f_t" /></a> 的力，火车质量 *m*。火车输入信号 <a href="http://www.codecogs.com/eqnedit.php?latex=\boldsymbol{u}_t" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\boldsymbol{u}_t" title="\boldsymbol{u}_t" /></a>：
+火车受到 <a href="https://www.codecogs.com/eqnedit.php?latex=f_t" target="_blank"><img src="https://latex.codecogs.com/gif.latex?f_t" title="f_t" /></a> 的力，火车质量 <a href="http://www.codecogs.com/eqnedit.php?latex=m" target="_blank"><img src="http://latex.codecogs.com/gif.latex?m" title="m" /></a>。火车输入信号 <a href="http://www.codecogs.com/eqnedit.php?latex=\boldsymbol{u}_t" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\boldsymbol{u}_t" title="\boldsymbol{u}_t" /></a>：
 <div align=center>
 <a href="http://www.codecogs.com/eqnedit.php?latex=\boldsymbol{u}_t=\frac{f_t}{m}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\boldsymbol{u}_t=\frac{f_t}{m}" title="\boldsymbol{u}_t=\frac{f_t}{m}" /></a>
 </div>
@@ -52,7 +52,7 @@
 ![图1][1]
 
 ### 2.2 求解
-如图所示，火车的 *t*=0 初始位置，红色表示位置的高斯分布。箭头指向右边，表示火车的初速度。
+如图所示，火车的 <a href="http://www.codecogs.com/eqnedit.php?latex=t=0" target="_blank"><img src="http://latex.codecogs.com/gif.latex?t=0" title="t=0" /></a> 初始位置，红色表示位置的高斯分布。箭头指向右边，表示火车的初速度。
 
 
 ![图2][2]
@@ -90,7 +90,7 @@
 <a href="https://www.codecogs.com/eqnedit.php?latex=\sigma_{fused}^2=\frac{\sigma_1^2\sigma_2^2}{\sigma_1^2&plus;\sigma_2^2}=\sigma_1^2-\frac{\sigma_1^4}{\sigma_1^2&plus;\sigma_2^2}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sigma_{fused}^2=\frac{\sigma_1^2\sigma_2^2}{\sigma_1^2&plus;\sigma_2^2}=\sigma_1^2-\frac{\sigma_1^4}{\sigma_1^2&plus;\sigma_2^2}" title="\sigma_{fused}^2=\frac{\sigma_1^2\sigma_2^2}{\sigma_1^2+\sigma_2^2}=\sigma_1^2-\frac{\sigma_1^4}{\sigma_1^2+\sigma_2^2}" /></a>
 </div>
 
-如果测量值是无线电信号传播时间，则还需要把单位统一，增加光速系数 *c*：
+如果测量值是无线电信号传播时间，则还需要把单位统一，增加光速系数 <a href="http://www.codecogs.com/eqnedit.php?latex=c" target="_blank"><img src="http://latex.codecogs.com/gif.latex?c" title="c" /></a>：
 <div align=center><p/>
 <a href="https://www.codecogs.com/eqnedit.php?latex=y_1(s;\mu_1,\sigma_1,c)\triangleq\frac1{\sqrt{2\pi(\dfrac{\sigma_1}{c})^2}}e^{-\dfrac{(s-\frac{\mu_1}{c})^2}{2(\frac{\sigma_1}{c})^2}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?y_1(s;\mu_1,\sigma_1,c)\triangleq\frac1{\sqrt{2\pi(\dfrac{\sigma_1}{c})^2}}e^{-\dfrac{(s-\frac{\mu_1}{c})^2}{2(\frac{\sigma_1}{c})^2}}" title="y_1(s;\mu_1,\sigma_1,c)\triangleq\frac1{\sqrt{2\pi(\dfrac{\sigma_1}{c})^2}}e^{-\dfrac{(s-\frac{\mu_1}{c})^2}{2(\frac{\sigma_1}{c})^2}}" /></a>
 <p/>
@@ -122,7 +122,7 @@
 详细代码见[notebook](Kalman_Filter.ipynb)。
 
 ### 3.1 初始化
-假设火车匀速运动，初始位置、速度、方差如下，不考虑质量、推力等因素。且预测值和测量值单位相同。
+假设火车匀速运动，初始位置、速度、标准差如下，不考虑质量、推力等因素。且预测值和测量值单位相同。
 
 |<a href="https://www.codecogs.com/eqnedit.php?latex=x_0$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?x_0$" title="x_0$" /></a>|<a href="https://www.codecogs.com/eqnedit.php?latex=\dot{x}_0" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\dot{x}_0" title="\dot{x}_0" /></a>|<a href="https://www.codecogs.com/eqnedit.php?latex=\sigma_1" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sigma_1" title="\sigma_1" /></a>|<a href="https://www.codecogs.com/eqnedit.php?latex=\sigma_2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sigma_2" title="\sigma_2" /></a>|
 |:--:|:--:|:--:|:--:|
@@ -136,14 +136,14 @@
 ![图6][6]
 
 ### 3.3 比较
-系统方差 <a href="https://www.codecogs.com/eqnedit.php?latex=\sigma_1" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sigma_1" title="\sigma_1" /></a>  和 <a href="https://www.codecogs.com/eqnedit.php?latex=\sigma_2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sigma_2" title="\sigma_2" /></a> 代表了预测模型和测量模型的可信度。提高测量模型的可信度，系统更快收敛：
+系统标准差 <a href="https://www.codecogs.com/eqnedit.php?latex=\sigma_1" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sigma_1" title="\sigma_1" /></a>  和 <a href="https://www.codecogs.com/eqnedit.php?latex=\sigma_2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sigma_2" title="\sigma_2" /></a> 代表了预测模型和测量模型的可信度。提高测量模型的可信度，系统更快收敛：
 
 ![图7][7]
 
 系统的初始值也很重要，也会影响迭代的速度。
 
 ## 4.QA
-### 4.1 如何确定协方差？
+### 4.1 如何确定标准差？
 一般根据传感器特性，通过测量得到。
 
   [1]: https://s1.ax1x.com/2018/08/26/PbtiDA.jpg
