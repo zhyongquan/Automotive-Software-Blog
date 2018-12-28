@@ -6,7 +6,9 @@
 
 ## 002 粒子滤波
 
-## 003 PID控制器
+## 003 [标定数据分析-CVX](/003_CVX/)
+
+## PID控制器
 
 ## 拓展
   1. [Python滤波算法](https://github.com/rlabbe/Kalman-and-Bayesian-Filters-in-Python)
